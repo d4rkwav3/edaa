@@ -2,13 +2,10 @@ import java.util.Arrays;
 
 public class Sort {
     // Exercício 001 usar o array abaixo para fazer os algoritmos de ordenação Bubble, Insert, Quick e Select
-    public static int teste1[] = {10, 30, -26, 7, -5, 12, 8, 9, 0, 11, -2, -21, 15, 13, 14, 5, 6, -4, -17, 20};
-    public static int teste2[] = {10, 30, -26, 7, -5, 12, 8, 9, 0, 11, -2, -21, 15, 13, 14, 5, 6, -4, -17, 20};
+    public int teste[] = {10, 30, -26, 7, -5, 12, 8, 9, 0, 11, -2, -21, 15, 13, 14, 5, 6, -4, -17, 20};
     
     // Ordenação do tipo BubbleSort
-    public static int[] bubbleSort(int[] array) {
-        int[] arr = new int[array.length];
-        arr = array;
+    public int[] bubbleSort(int[] arr) {
         int troca;
         int iteracoes = 0;
         long tempoInicial = System.currentTimeMillis();
@@ -37,9 +34,7 @@ public class Sort {
     }
 
     // Ordenação do tipo InsertionSort
-    public static int[] insertionSort(int[] array) {
-        int[] arr = new int[array.length];
-        arr = array;
+    public int[] insertionSort(int[] arr) {
         int troca, volta;
         int iteracoesAEsquerda = 0;
         long tempoInicial = System.currentTimeMillis();
@@ -68,10 +63,5 @@ public class Sort {
         System.out.println(msg + tempo + "\n");
 
         return arr;
-    }
-
-    public static void main(String[] args) {
-        bubbleSort(teste1);
-        insertionSort(teste2);
     }
 }
