@@ -1,17 +1,20 @@
 import java.util.Arrays;
 
 public class Sort {
-    // Exercício 001 usar o array abaixo para fazer os algoritmos de ordenação Select, insert, bubble, quick
-    public static int teste[] = {10, 30, -26, 7, -5, 12, 8, 9, 0, 11, -2, -21, 15, 13, 14, 5, 6, -4, -17, 20};
+    // Exercício 001 usar o array abaixo para fazer os algoritmos de ordenação Bubble, Insert, Quick e Select
+    public static int teste1[] = {10, 30, -26, 7, -5, 12, 8, 9, 0, 11, -2, -21, 15, 13, 14, 5, 6, -4, -17, 20};
+    public static int teste2[] = {10, 30, -26, 7, -5, 12, 8, 9, 0, 11, -2, -21, 15, 13, 14, 5, 6, -4, -17, 20};
     
     // Ordenação do tipo BubbleSort
-    public static int[] bubbleSort(int arr[]) {
+    public static int[] bubbleSort(int[] array) {
+        int[] arr = new int[array.length];
+        arr = array;
         int troca;
         int iteracoes = 0;
         long tempoInicial = System.currentTimeMillis();
         long tempoFinal;
 
-        System.out.println("\nArray desordenando: " + Arrays.toString(arr));
+        System.out.println("BubbleSort\nArray desordenando: " + Arrays.toString(arr));
 
         for (int rodada = 0; rodada < arr.length - 1; rodada++) {
             for (int indice = 0; indice < arr.length - 1; indice++) {
@@ -27,13 +30,48 @@ public class Sort {
 
         System.out.println("Array reordenando:  " + Arrays.toString(arr));
         String msg = "Total de iterações no array: " + Integer.toString(iteracoes) + " vezes. ";
-        String tempo = "Tempo de execução " + (tempoFinal - tempoInicial) + " ms";
+        String tempo = "Tempo de execução " + (tempoFinal - tempoInicial) + " ms.";
+        System.out.println(msg + tempo + "\n");
+
+        return arr;
+    }
+
+    // Ordenação do tipo InsertionSort
+    public static int[] insertionSort(int[] array) {
+        int[] arr = new int[array.length];
+        arr = array;
+        int troca, volta;
+        int iteracoesAEsquerda = 0;
+        long tempoInicial = System.currentTimeMillis();
+        long tempoFinal;
+
+        System.out.println("InsertionSort\nArray desordenando: " + Arrays.toString(arr));
+
+        for (int indice = 1; indice < arr.length; indice++) {
+            troca = arr[indice];
+            volta = indice;
+            for (int anterior = indice - 1; anterior >= 0; anterior--) {
+                if (arr[volta] < arr[anterior]) {
+                    arr[volta] = arr[anterior];
+                    arr[anterior] = troca;
+                    volta--; 
+                 } 
+            }
+            iteracoesAEsquerda++;
+        }
+        
+        tempoFinal = System.currentTimeMillis();
+
+        System.out.println("Array reordenando:  " + Arrays.toString(arr));
+        String msg = "Total de iterações no array: " + Integer.toString(iteracoesAEsquerda) + " vezes à esquerda. ";
+        String tempo = "Tempo de execução " + (tempoFinal - tempoInicial) + " ms.";
         System.out.println(msg + tempo + "\n");
 
         return arr;
     }
 
     public static void main(String[] args) {
-        bubbleSort(teste);
+        bubbleSort(teste1);
+        insertionSort(teste2);
     }
 }
