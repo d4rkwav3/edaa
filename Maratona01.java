@@ -1,8 +1,8 @@
-/*
+/**
  * Exercício da Maratona de Programação EDAA 2024
  * Problema 1244 - Ordenação por Tamanho
  * Bruno Venâncio de Souza e Silva - RA: 821135934
- * 
+ ** 
  */
 
 import java.util.Scanner;
